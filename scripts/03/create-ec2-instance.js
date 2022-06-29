@@ -76,7 +76,7 @@ async function createInstance (sgName, keyName) {
     MaxCount: 1,
     MinCount: 1,
     SecurityGroups: [ sgName ],
-    UserData: 'IyEvYmluL2Jhc2gKc3VkbyBhcHQtZ2V0IHVwZGF0ZQpzdWRvIGFwdC1nZXQgLXkgaW5zdGFsbCBnaXQKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0aHViLmNvbS9yeWFubXVyYWthbWkvaGJmbC5naXQgL2hvbWUvYml0bmFtaS9oYmZsCmNob3duIC1SIGJpdG5hbWk6IC9ob21lL2JpdG5hbWkvaGJmbApjZCAvaG9tZS9iaXRuYW1pL2hiZmwKc3VkbyBucG0gaQpzdWRvIG5wbSBydW4gc3RhcnQ='
+    UserData: 'IyEvYmluL2Jhc2gNCmN1cmwgLS1zaWxlbnQgLS1sb2NhdGlvbiBodHRwczovL3JwbS5ub2Rlc291cmNlLmNvbS9zZXR1cF8xNi54IHwgc3VkbyBiYXNoIC0NCnN1ZG8geXVtIGluc3RhbGwgLXkgbm9kZWpzDQpzdWRvIHl1bSBpbnN0YWxsIC15IGdpdA0KY2QgL2hvbWUvZWMyLXVzZXINCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vcHJhdmVlbmF3c3Rhc2tzL2hiZmwuZ2l0DQpjZCBoYmZsDQpucG0gaQ0KbnBtIHJ1biBzdGFydA0K'
   }
   const command = new RunInstancesCommand(params)
   return sendCommand(command)
