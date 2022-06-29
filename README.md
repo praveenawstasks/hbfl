@@ -14,3 +14,6 @@ All Images copyright Ryan Lewis
 
 All Code under MIT license
 
+
+
+removed "scp2": "0.5.0" from package.json
