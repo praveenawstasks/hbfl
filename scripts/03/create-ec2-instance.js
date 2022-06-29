@@ -71,12 +71,12 @@ async function createKeyPair (keyName) {
 async function createInstance (sgName, keyName) {
   const params = {
     ImageId: 'ami-00a41699ce2331b3e',
-    InstanceType: 't2.micro',
+    InstanceType: 't2.small',
     KeyName: keyName,
     MaxCount: 1,
     MinCount: 1,
     SecurityGroups: [ sgName ],
-    UserData: 'IyEvYmluL2Jhc2gNCnN1ZG8gYXB0LWdldCB1cGRhdGUNCnN1ZG8gYXB0LWdldCAteSBpbnN0YWxsIGdpdA0Kc3VkbyBybSAtcmYgL2hvbWUvYml0bmFtaS9oYmZsDQpnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL3ByYXZlZW5hd3N0YXNrcy9oYmZsLmdpdCAvaG9tZS9iaXRuYW1pL2hiZmwNCmNob3duIC1SIGJpdG5hbWk6IC9ob21lL2JpdG5hbWkvaGJmbA0KY2QgL2hvbWUvYml0bmFtaS9oYmZsDQpzdWRvIHJtIC1yZiBub2RlX21vZHVsZXMNCnN1ZG8gbnBtIGNpDQpzdWRvIG5wbSBydW4gc3RhcnQ='
+    UserData: 'IyEvYmluL2Jhc2gNCnN1ZG8gYXB0LWdldCB1cGRhdGUNCnN1ZG8gYXB0LWdldCAteSBpbnN0YWxsIGdpdA0Kc3VkbyBybSAtcmYgL2hvbWUvYml0bmFtaS9oYmZsDQpnaXQgY2xvbmUgaHR0cHM6Ly9naXRodWIuY29tL3ByYXZlZW5hd3N0YXNrcy9oYmZsLmdpdCAvaG9tZS9iaXRuYW1pL2hiZmwNCmNob3duIC1SIGJpdG5hbWk6IC9ob21lL2JpdG5hbWkvaGJmbA0KY2QgL2hvbWUvYml0bmFtaS9oYmZsDQpzdWRvIHJtIC1yZiBub2RlX21vZHVsZXMNCnN1ZG8gbnBtIGNpDQpucG0gcnVuIHN0YXJ0DQo='
   }
   const command = new RunInstancesCommand(params)
   return sendCommand(command)

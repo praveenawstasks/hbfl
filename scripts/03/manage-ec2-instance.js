@@ -27,4 +27,4 @@ async function terminateInstance (instanceId) {
 }
 
 //listInstances().then(console.log)
-terminateInstance('i-09e71cc903680de2e').then(console.log)
+terminateInstance('i-0c0fd110c19c36f16').then(console.log)
