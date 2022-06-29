@@ -14,8 +14,8 @@ function sendCommand (command) {
 }
 
 // Declare local variables
-const sgName = 'hamster_sg2'
-const keyName = 'hamster_key2'
+const sgName = 'hamster_sg'
+const keyName = 'hamster_key'
 
 // Do all the things together
 async function execute () {
