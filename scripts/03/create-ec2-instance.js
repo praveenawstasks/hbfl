@@ -70,7 +70,7 @@ async function createKeyPair (keyName) {
 
 async function createInstance (sgName, keyName) {
   const params = {
-    ImageId: 'ami-00a41699ce2331b3e',
+    ImageId: 'ami-0cff7528ff583bf9a',
     InstanceType: 't2.micro',
     KeyName: keyName,
     MaxCount: 1,
