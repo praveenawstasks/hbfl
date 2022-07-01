@@ -1,6 +1,7 @@
 // Imports
 const {
   CreateListenerCommand,
+  CreateLoadBalancerCommand,
   CreateTargetGroupCommand
 } = require('@aws-sdk/client-elastic-load-balancing-v2')
 
@@ -10,9 +11,10 @@ const helpers = require('./helpers')
 const sgName = 'hamsterLBSG'
 const tgName = 'hamsterTG'
 const lbName = 'hamsterLB'
-const vpcId = '/* TODO: Add your VPC Id */'
+const vpcId = 'vpc-0a843c1c2fb9a5a50'
 const subnets = [
-  /* TODO: Add two subnets */
+  'subnet-05ce4b86561bf67f9',
+  'subnet-0f9b5eca6cba39e07'
 ]
 
 async function execute () {
@@ -33,7 +35,14 @@ async function execute () {
 }
 
 function createLoadBalancer (lbName, sgId) {
-  // TODO: Create a load balancer
+  const params = {
+    Name: lbName,
+    SecurityGroups: [ sgId ],
+    Subnets: subnets,
+    Type: 'application'
+  }
+  const command = new CreateLoadBalancerCommand(params)
+  return helpers.sendELBCommand(command)
 }
 
 function createTargetGroup (tgName) {
