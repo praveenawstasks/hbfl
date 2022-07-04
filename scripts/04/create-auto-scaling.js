@@ -10,7 +10,7 @@ const { sendAutoScalingCommand } = require('./helpers')
 const asgName = 'hamsterASG'
 const ltName = 'hamsterLT'
 const policyName = 'hamsterPolicy'
-const tgArn = '/* TODO: get target group ARN */'
+const tgArn = 'arn:aws:elasticloadbalancing:us-east-1:765991009311:targetgroup/hamsterTG/9888078eb4aa4860'
 
 async function execute () {
   try {
@@ -23,11 +23,38 @@ async function execute () {
 }
 
 function createAutoScalingGroup (asgName, ltName) {
-  // TODO: Create an auto scaling group
+  const params = {
+    AutoScalingGroupName: asgName,
+    AvailabilityZones: [
+      'us-east-1a',
+      'us-east-1b'
+    ],
+    LaunchTemplate: {
+      LaunchTemplateName: ltName
+    },
+    MaxSize: 2,
+    MinSize: 1,
+    TargetGroupARNs: [ tgArn ]
+  }
+  const command = new CreateAutoScalingGroupCommand(params)
+  return sendAutoScalingCommand(command)
 }
 
 function createASGPolicy (asgName, policyName) {
-  // TODO: Create an auto scaling group policy
+  const params = {
+    AdjustmentType: 'ChangeInCapacity',
+    AutoScalingGroupName: asgName,
+    PolicyName: policyName,
+    PolicyType: 'TargetTrackingScaling',
+    TargetTrackingConfiguration: {
+      TargetValue: 5,
+      PredefinedMetricSpecification: {
+        PredefinedMetricType: 'ASGAverageCPUUtilization'
+      }
+    }
+  }
+  const command = new PutScalingPolicyCommand(params)
+  return sendAutoScalingCommand(command)
 }
 
 execute()
